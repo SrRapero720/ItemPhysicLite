@@ -1,2 +1,5 @@
+1.6.4
+Added random offset to items laying on the ground (used vanilla's bobOffs)
+
 1.6.3
 Fixed fabric dependency
