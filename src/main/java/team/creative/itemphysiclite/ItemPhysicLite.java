@@ -39,6 +39,7 @@ public class ItemPhysicLite implements ClientLoader {
     private static Minecraft mc = Minecraft.getInstance();
     public static ItemPhysicLiteConfig CONFIG;
     public static long lastTickTime;
+    private static final double RANDOM_Y_OFFSET_SCALE = 0.05 / (Math.PI * 2);
     
     public static boolean render(ItemEntity entity, float entityYaw, float partialTicks, PoseStack pose, MultiBufferSource buffer, int packedLight, ItemRenderer itemRenderer, RandomSource rand) {
         if (entity.getAge() == 0)
@@ -94,9 +95,9 @@ public class ItemPhysicLite implements ClientLoader {
                 pose.translate(0, -0.2, -0.08);
             else if (entity.level().getBlockState(entity.blockPosition()).getBlock() == Blocks.SNOW || entity.level().getBlockState(entity.blockPosition().below())
                     .getBlock() == Blocks.SOUL_SAND)
-                pose.translate(0, 0.0, -0.14);
+                pose.translate(0, 0.0, -0.14 - entity.bobOffs * RANDOM_Y_OFFSET_SCALE);
             else
-                pose.translate(0, 0, -0.04);
+                pose.translate(0, 0, -0.04 - entity.bobOffs * RANDOM_Y_OFFSET_SCALE);
             
             double height = 0.2;
             if (flag)
