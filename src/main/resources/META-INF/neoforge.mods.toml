@@ -11,18 +11,19 @@ license="LGPL-3.0-only"
     displayURL="https://modrinth.com/mod/itemphysic-lite"
     authors="CreativeMD"
     description='''Enhances the rendering of items.'''
+    displayTest="NONE"
 
 [[dependencies.itemphysiclite]]
     modId="neoforge"
     type="required"
-    versionRange="[20.4,)"
+    versionRange="[20.6,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.itemphysiclite]]
     modId="minecraft"
     type="required"
-    versionRange="[1.20.4,1.21)"
+    versionRange="[1.20.6,1.21)"
     ordering="NONE"
     side="BOTH"
 
