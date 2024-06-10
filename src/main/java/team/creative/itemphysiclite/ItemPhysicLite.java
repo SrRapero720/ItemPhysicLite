@@ -57,7 +57,7 @@ public class ItemPhysicLite implements ClientLoader {
         
         Vec3 motionMultiplier = getStuckSpeedMultiplier(entity);
         if (motionMultiplier != null && motionMultiplier.lengthSqr() > 0)
-            rotateBy *= motionMultiplier.x * 0.2;
+            rotateBy *= (float) (motionMultiplier.x * 0.2);
         
         pose.mulPose(Vector3f.XP.rotation((float) Math.PI / 2));
         pose.mulPose(Vector3f.ZP.rotation(entity.getYRot()));
@@ -193,6 +193,6 @@ public class ItemPhysicLite implements ClientLoader {
     public void onInitializeClient() {
         ICreativeLoader loader = CreativeCore.loader();
         loader.registerDisplayTest(() -> loader.ignoreServerNetworkConstant(), (a, b) -> true);
-        loader.registerClientRender(() -> lastTickTime = System.nanoTime());
+        loader.registerClientRenderStart(() -> lastTickTime = System.nanoTime());
     }
 }
